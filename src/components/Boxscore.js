@@ -14,7 +14,8 @@ class Boxscore extends Component {
         away_team,
         home_period_scores,
         away_period_scores,
-        league
+        league,
+        event_information
       } = this.state;
       if (this.state.league === 'MLB') {
         const {
@@ -34,6 +35,7 @@ class Boxscore extends Component {
             awayHits={away_batter_totals.hits}
             homeErrors={home_errors}
             awayErrors={away_errors}
+            status={event_information.status}
           />
         );
       } else {
@@ -46,6 +48,7 @@ class Boxscore extends Component {
           awayTeam={away_team}
           homeScore={home_period_scores}
           awayScore={away_period_scores}
+          status={event_information.status}
         />
       );
     } else {

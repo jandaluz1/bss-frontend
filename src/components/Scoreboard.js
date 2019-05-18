@@ -3,10 +3,11 @@ import PeriodScores from './PeriodScores';
 import './Scoreboard.scss';
 
 const Scoreboard = props => {
-  const { homeTeam, awayTeam, homeScore, awayScore, league } = props;
+  const { homeTeam, awayTeam, homeScore, awayScore, league, status } = props;
   if (league === 'MLB') {
     var { homeHits, awayHits, homeErrors, awayErrors } = props;
   }
+
   return (
     <div className="scoreboard">
       <div className="header score-line">
@@ -47,6 +48,11 @@ const Scoreboard = props => {
             <div className="period">{homeErrors}</div>
           </React.Fragment>
         )}
+      </div>
+      <div className="teams-box">
+        <div className="team-info">{awayTeam.full_name}</div>
+        {status === 'completed' && <div className="status">Final</div>}
+        <div className="team-info">{homeTeam.full_name}</div>
       </div>
     </div>
   );
