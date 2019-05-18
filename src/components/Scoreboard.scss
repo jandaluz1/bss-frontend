@@ -1,0 +1,22 @@
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 4rem;
+}
+
+.score-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.period {
+  width: 2rem;
+  text-align: right;
+}
+
+.team {
+  width: 3rem;
+}
