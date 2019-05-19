@@ -24,7 +24,7 @@ const Scoreboard = props => {
             <div className="period">E</div>
           </React.Fragment>
         ) : (
-          <div>Total</div>
+          <div className="period">Total</div>
         )}
       </div>
       <div className="score-line">

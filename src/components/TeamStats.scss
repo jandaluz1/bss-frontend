@@ -6,9 +6,11 @@
   border-right: 1px solid black;
   padding-top: 0.2rem;
 }
-.header {
+.stats-header {
   display: flex;
+  flex-direction: row;
   justify-content: space-evenly;
+  background: #eee;
 }
 
 .stat {

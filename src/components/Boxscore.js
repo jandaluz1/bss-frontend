@@ -4,7 +4,7 @@ import StatsBox from './Statsbox';
 
 class Boxscore extends Component {
   componentDidMount() {
-    const data = require('../data/mlb.json');
+    const data = require('../data/nba.json');
     console.log(data);
     this.setState({ ...data });
   }
