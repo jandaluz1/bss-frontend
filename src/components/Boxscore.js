@@ -1,11 +1,26 @@
 import React, { Component } from 'react';
 import Scoreboard from './Scoreboard';
 import StatsBox from './Statsbox';
+import axios from 'axios';
 
 class Boxscore extends Component {
-  componentDidMount() {
-    const data = require('../data/nba.json');
-    this.setState({ ...data });
+  async componentDidMount() {
+    const { id } = this.props;
+    console.log(id);
+    const { data } = await axios.get(`/api/${id}`);
+    console.log(data);
+    this.setState({ ...data.stats });
+    this.poll();
+  }
+
+  poll() {
+    console.log('POLLING');
+    const { id } = this.props;
+    setTimeout(async () => {
+      const { data } = await axios.get(`/api/${id}`);
+      this.setState({ ...data });
+      this.poll();
+    }, 15000);
   }
   render() {
     if (this.state) {
