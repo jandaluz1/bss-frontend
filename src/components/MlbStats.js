@@ -1,18 +1,31 @@
 import React from 'react';
-import './MLBStats.scss';
+import { TableBody, TableRow, TableCell } from '@material-ui/core';
+
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles(theme => ({
+  tableBody: {
+    '&:nth-Child(odd)': {
+      backgroundColor: theme.palette.grey[100]
+    }
+  }
+}));
 
 const MLBStats = props => {
   const { stats } = props;
+  const classes = useStyles();
   return (
-    <div className="playerStats">
-      <div className="stat name">{stats.display_name}</div>
-      <div className="stat pos">{stats.position}</div>
-      <div className="stat">
-        {stats.hits}-{stats.at_bats}
-      </div>
-      <div className="stat">{stats.rbi}</div>
-      <div className="stat">{stats.home_runs}</div>
-    </div>
+    <TableBody className={classes.tableBody}>
+      <TableRow>
+        <TableCell>{stats.display_name}</TableCell>
+        <TableCell>{stats.position}</TableCell>
+        <TableCell>
+          {stats.hits}-{stats.at_bats}
+        </TableCell>
+        <TableCell>{stats.rbi}</TableCell>
+        <TableCell>{stats.home_runs}</TableCell>
+      </TableRow>
+    </TableBody>
   );
 };
 

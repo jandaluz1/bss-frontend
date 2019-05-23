@@ -5,7 +5,6 @@ import StatsBox from './Statsbox';
 class Boxscore extends Component {
   componentDidMount() {
     const data = require('../data/nba.json');
-    console.log(data);
     this.setState({ ...data });
   }
   render() {
@@ -39,7 +38,7 @@ class Boxscore extends Component {
               awayHits={away_batter_totals.hits}
               homeErrors={home_errors}
               awayErrors={away_errors}
-              status={event_information.status}
+              gameInfo={event_information}
             />
             <StatsBox
               homeStats={home_batters}
@@ -58,7 +57,7 @@ class Boxscore extends Component {
               awayTeam={away_team}
               homeScore={home_period_scores}
               awayScore={away_period_scores}
-              status={event_information.status}
+              gameInfo={event_information}
             />
             <StatsBox
               homeStats={home_stats}
